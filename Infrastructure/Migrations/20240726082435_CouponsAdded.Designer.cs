@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure.Migrations
 {
-    [DbContext(typeof(StoreContext))]
+    [DbContext(typeof(SqlDataContext))]
     [Migration("20240726082435_CouponsAdded")]
     partial class CouponsAdded
     {

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure;
 
-public class GenericRepository<T>(StoreContext context) : IGenericRepository<T> where T : BaseEntity
+public class GenericRepository<T>(SqlDataContext context) : IGenericRepository<T> where T : BaseEntity
 {
     public void Add(T entity)
     {

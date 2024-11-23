@@ -4,7 +4,7 @@ using Core.Interfaces;
 
 namespace Infrastructure.Data;
 
-public class UnitOfWork(StoreContext context) : IUnitOfWork
+public class UnitOfWork(SqlDataContext context) : IUnitOfWork
 {
     private readonly ConcurrentDictionary<string, object> _repositories = new();
 

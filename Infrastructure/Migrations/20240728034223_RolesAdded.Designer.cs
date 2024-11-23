@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure.Migrations
 {
-    [DbContext(typeof(StoreContext))]
+    [DbContext(typeof(SqlDataContext))]
     [Migration("20240728034223_RolesAdded")]
     partial class RolesAdded
     {
