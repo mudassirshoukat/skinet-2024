@@ -1,6 +1,6 @@
 ﻿namespace Core.Entities;
 
-public class CartItem
+public class CartItem:BaseEntity
 {
     public int ProductId { get; set; }
     public required string ProductName { get; set; }

@@ -13,6 +13,9 @@ public class SqlDataContext(DbContextOptions options) : IdentityDbContext<AppUse
     public DbSet<DeliveryMethod> DeliveryMethods { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
+    public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+    public DbSet<CartItem> CartItems { get; set; }
+    public DbSet<AppCoupon> AppCoupons { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

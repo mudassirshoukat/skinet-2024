@@ -1,6 +1,6 @@
 ﻿namespace Core.Entities;
 
-public class AppCoupon
+public class AppCoupon:BaseEntity
 {
     public required string Name { get; set; }
     public decimal? AmountOff { get; set; }

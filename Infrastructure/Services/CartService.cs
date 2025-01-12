@@ -1,17 +1,15 @@
 ﻿using System.Text.Json;
 using Core.Entities;
 using Core.Interfaces;
-using StackExchange.Redis;
 
 namespace Infrastructure.Services;
 
-public class CartService(IConnectionMultiplexer redis) : ICartService
+public class CartService( IUnitOfWork unitOfWork) : ICartService
 {
-    private readonly IDatabase _database = redis.GetDatabase();
-
+    private readonly IUnitOfWork _unitOfWork;
     public async Task<bool> DeleteCartAsync(string key)
     {
-        return await _database.KeyDeleteAsync(key);
+        return await _unitOfWork..(key);
     }
 
     public async Task<ShoppingCart?> GetCartAsync(string key)
@@ -23,9 +21,9 @@ public class CartService(IConnectionMultiplexer redis) : ICartService
 
     public async Task<ShoppingCart?> SetCartAsync(ShoppingCart cart)
     {
-        var created = await _database.StringSetAsync(cart.Id, 
+        var created = await _database.StringSetAsync(cart.Id,
             JsonSerializer.Serialize(cart), TimeSpan.FromDays(30));
-    
+
         if (!created) return null;
 
         return await GetCartAsync(cart.Id);
